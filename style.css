@@ -89,7 +89,7 @@ body {
   z-index: 999;          /* pastikan di atas semua elemen */
   backdrop-filter: blur(6px);
   background: rgba(255,255,255,0.02);
-  padding: 12px 70px;
+  padding: 12px 24px;
   border-radius: 0 0 12px 12px; /* border-radius hanya di bawah */
   display: flex;
   align-items: center;
@@ -100,12 +100,34 @@ body {
 
 .brand{font-weight:700;color:var(--muted)}
 .nav a{
-  margin-left:18px;
+  margin-left:6px;
   color:var(--muted);
   text-decoration:none;
   font-weight:500;
 }
 .nav a.active, .nav a:hover{color:var(--text)}
+
+/* === GARIS BAWAH UNTUK MENU AKTIF === */
+.nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav a::after {
+  bottom: 0; /* sejajar di bagian bawah kotak menu */
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
 
 /* hero */
 .hero{max-width:var(--maxw);margin:28px auto;padding:28px;}
