@@ -17,3 +17,21 @@ document.getElementById('downloadBtn').addEventListener('click', ()=>{
     setTimeout(()=> document.body.classList.remove('print-ready'), 500);
   }, 250); 
 });
+
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('.nav');
+const navLinks = document.querySelectorAll('.nav a');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+// Saat menu diklik, otomatis tutup sidebar
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+
